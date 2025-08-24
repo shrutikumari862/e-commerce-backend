@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import cors from 'cors'
 import fileUpload from 'express-fileupload';
 import { userRouter } from './routes/user.rout.js';
 import { sellerRout } from './routes/seller.rout.js';
@@ -16,7 +17,7 @@ async function connectToMondoDB(){
     }
 }
 connectToMondoDB()
-
+app.use(cors())
 app.use(express.json())
 app.use(fileUpload({
   useTempFiles: true,
