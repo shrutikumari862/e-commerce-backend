@@ -38,11 +38,11 @@ userRouter.post('/signup',async(req,res)=>{
          email:req.body.email,
          password:hashedPassword,
          address:[{
-         label:req.body.label,
-         country:req.body.country,
-         city:req.body.city,
-         state:req.body.state,
-         street:req.body.street}],
+         label:req.body.address[0].label,
+         country:req.body.address[0].country,
+         city:req.body.address[0].city,
+         state:req.body.address[0].state,
+         street:req.body.address[0].street}],
          role:req.body.role,
          
          
