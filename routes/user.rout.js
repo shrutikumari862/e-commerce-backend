@@ -37,12 +37,7 @@ userRouter.post('/signup',async(req,res)=>{
          phone:req.body.phone,
          email:req.body.email,
          password:hashedPassword,
-         address:[{
-         label:req.body.address[0].label,
-         country:req.body.address[0].country,
-         city:req.body.address[0].city,
-         state:req.body.address[0].state,
-         street:req.body.address[0].street}],
+         address:req.body.address,
          role:req.body.role,
          
          
