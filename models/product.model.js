@@ -77,6 +77,11 @@ const productSchema=new Schema({
         type:Schema.Types.ObjectId,
         ref:'User'
     },
+    category:{
+        type:String,
+        enum:['Men','Women','Kid'],
+        required:true
+    }
 },{timestamps:true})
 
 

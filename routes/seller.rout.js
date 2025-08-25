@@ -78,7 +78,8 @@ sellerRout.post('/addProduct',chekLogin,async(req,res)=>{
     materialType:req.body.materialType,
     color:req.body.color,
     sizesAvailable:req.body.sizesAvailable,
-    soldBy:verifyUser.id
+    soldBy:verifyUser.id,
+    category:req.body.category
     
    })
   if(req.body.description){
