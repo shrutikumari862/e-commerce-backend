@@ -103,7 +103,8 @@ userRouter.post('/login',async(req,res)=>{
          
          res.status(200).json({
               message:`you successfully logged in`,
-              token:token
+              token:token,
+              user:user
         })
 
 
