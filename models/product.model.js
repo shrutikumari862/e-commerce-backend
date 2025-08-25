@@ -65,10 +65,10 @@ const productSchema=new Schema({
         type:String,
         required:true
     },
-    sizesAvailable:{
-        type:[String],
-        enum:['S','M','L']
-    },
+    sizesAvailable: [{
+  type: String,
+  enum: ["S", "M", "L"]
+   }],
     description:{
         type:String,
         
