@@ -6,7 +6,7 @@ const productSchema=new Schema({
         type:String,
         required:true
     },
-    img:[{
+    img:{
         img1:{
              secure_url:{
                 type:String,
@@ -52,7 +52,7 @@ const productSchema=new Schema({
              },
              
         }
-    }],
+    },
     price:{
         type:String,
         required:true
