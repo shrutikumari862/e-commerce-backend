@@ -162,3 +162,17 @@ sellerRout.delete('/deleteproduct/:productID',chekLogin,async(req,res)=>{
 
 
 
+//get products added
+sellerRout.get('/myproducts',chekLogin,async(req,res)=>{
+  try {
+    const verifyUser=await jwt.verify(req.headers.authorization.split(' ')[1],process.env.JWT_SECRET)
+     const products=await Product.find({soldBy:verifyUser.id})
+     res.status(200).json({
+      yourproducts:products
+     })
+  } catch (error) {
+    res.status(500).json({
+      ERROR:`ERROR IN GET /muproducts rout error:${error}`
+    })
+  }
+})
