@@ -9,7 +9,7 @@ export const chekLogin=async(req,res,next)=>{
            next()
        } catch (error) {
         return res.status(500).json({
-            Error:`Error in checkLogin middleware`
+            Error:`Error in checkLogin middleware ${error.message}`
         })
         
        }
