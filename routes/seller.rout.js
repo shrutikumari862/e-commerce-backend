@@ -137,18 +137,22 @@ sellerRout.delete('/deleteproduct/:productID',chekLogin,async(req,res)=>{
         }
 
 
-        if (product.img.img1) {
-       await cloudinary.uploader.destroy(product.img.img1.public_id);
-      }
-       if (product.img.img2) {
-       await cloudinary.uploader.destroy(product.img.img2.public_id);
-      }
-      if (product.img.img3) {
-       await cloudinary.uploader.destroy(product.img.img3.public_id);
-      }
-      if (product.img.img4) {
-       await cloudinary.uploader.destroy(product.img.img4.public_id);
-      }
+       if (Array.isArray(product.img)) {
+  for (const imgObj of product.img) {
+    if (imgObj.img1?.public_id) {
+      await cloudinary.uploader.destroy(imgObj.img1.public_id);
+    }
+    if (imgObj.img2?.public_id) {
+      await cloudinary.uploader.destroy(imgObj.img2.public_id);
+    }
+    if (imgObj.img3?.public_id) {
+      await cloudinary.uploader.destroy(imgObj.img3.public_id);
+    }
+    if (imgObj.img4?.public_id) {
+      await cloudinary.uploader.destroy(imgObj.img4.public_id);
+    }
+  }
+}
      const deletedproduct=await Product.findByIdAndDelete(req.params.productID)
 
      res.status(200).json({
