@@ -183,6 +183,20 @@ userRouter.get('/products',async(req,res)=>{
     }
 })
 
+userRouter.get('/product/:productId',async(req,res)=>{
+    try {
+        const product=await Product.findById(req.params.productId)
+        res.status(200).json({
+            product:product
+        })
+    } catch (error) {
+        res.status(500).json({
+            ERROR:`ERROR IN /PRODUCT ROUT ${error}`
+        })
+    }
+})
+
+
 
 userRouter.get('/getItemsInCart',chekLogin,async(req,res)=>{
         try {
