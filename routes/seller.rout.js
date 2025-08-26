@@ -156,7 +156,7 @@ sellerRout.delete('/deleteproduct/:productID',chekLogin,async(req,res)=>{
      })
     } catch (error) {
         res.status(500).json({
-            ERROR:`ERROR IN DELETE PRODUCT ERROR:${error} `
+            ERROR:`ERROR IN DELETE PRODUCT ERROR:${error.message} `
         })
     }
 })
