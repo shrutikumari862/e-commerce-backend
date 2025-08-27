@@ -30,14 +30,16 @@ userRouter.post('/signup',async(req,res)=>{
 
        const hashedPassword=await bcrypt.hash(req.body.password,10)
 
-
+        let address = [];
+        if (req.body.address) {
+        address = JSON.parse(req.body.address);
 
        const user=new User({
          userName:req.body.userName,
          phone:req.body.phone,
          email:req.body.email,
          password:hashedPassword,
-         address:req.body.address,
+         address:address,
          role:req.body.role,
          
          
