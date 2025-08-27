@@ -212,3 +212,24 @@ userRouter.get('/getItemsInCart',chekLogin,async(req,res)=>{
             })
         }
 })
+
+
+userRouter.get('/profile',chekLogin,async(req,res)=>{
+   try{ 
+    const verifyUser=await jwt.verify(req.headers.authorization.split(' ')[1],process.env.JWT_SECRET)
+    
+    const profile=await User.find({email:verifyUser.email})
+    if(!profile){
+        return res.status(200).json({
+            message:`you have not signed up it seemed`
+        })
+    }
+    res.status(500).json({
+        user:profile
+    })
+   }catch(error){
+    res.status(500).json({
+        Error:`Error in Get /profile rout`
+    })
+   }
+})
