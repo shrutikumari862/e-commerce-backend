@@ -224,7 +224,7 @@ userRouter.get('/profile',chekLogin,async(req,res)=>{
             message:`you have not signed up it seemed`
         })
     }
-    res.status(500).json({
+    res.status(200).json({
         user:profile
     })
    }catch(error){
