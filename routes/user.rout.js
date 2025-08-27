@@ -32,7 +32,7 @@ userRouter.post('/signup',async(req,res)=>{
 
         let address = [];
         if (req.body.address) {
-        address = JSON.parse(req.body.address);
+        address = JSON.parse(req.body.address)};
 
        const user=new User({
          userName:req.body.userName,
