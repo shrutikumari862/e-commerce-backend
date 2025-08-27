@@ -185,7 +185,7 @@ userRouter.get('/products',async(req,res)=>{
 
 userRouter.get('/product/:productId',async(req,res)=>{
     try {
-        const product=await Product.findById(req.params.productId)
+        const product=await Product.findById(req.params.productId).populate('soldBy')
         res.status(200).json({
             product:product
         })
