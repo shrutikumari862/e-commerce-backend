@@ -5,11 +5,7 @@ import cors from 'cors'
 import fileUpload from 'express-fileupload';
 import { userRouter } from './routes/user.rout.js';
 import { sellerRout } from './routes/seller.rout.js';
-dotenv.config({
-  origin: "http://localhost:5173", // your frontend URL
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-})
+dotenv.config()
 const app = express();
 
 async function connectToMondoDB(){
